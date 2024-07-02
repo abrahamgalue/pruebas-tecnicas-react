@@ -1,19 +1,19 @@
 import { useContext } from 'react'
 import { BooksContext } from './books/BooksContext.tsx'
 import './App.css'
+import BookList from './components/BookList.tsx'
 
 function App() {
-  const books = useContext(BooksContext)
-
-  console.log(
-    books.library.map(({ book }) => {
-      return book.pages
-    })
-  )
+  const { library } = useContext(BooksContext)
 
   return (
     <>
-      <h1>Hola Mundo</h1>
+      <header>
+        <h1>Lista de libros</h1>
+      </header>
+      <main>
+        <BookList books={library} />
+      </main>
     </>
   )
 }
