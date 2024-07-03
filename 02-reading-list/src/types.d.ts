@@ -15,9 +15,22 @@ export interface Book {
   year: number
   ISBN: string
   author: Author
+  isInCart?: boolean
 }
 
 export interface Author {
   name: string
   otherBooks: string[]
+}
+
+export type BooksState = Book[]
+
+export enum BooksActions {
+  ADD = 'ADD/BOOK',
+}
+
+export interface BookAction {
+  type: BooksActions
+  // esto se debe cambiar
+  payload: Book
 }
