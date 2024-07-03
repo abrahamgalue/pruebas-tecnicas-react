@@ -1,0 +1,34 @@
+.BooksCart {
+  background-color: rgb(18, 18, 18);
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 250px;
+}
+
+.BooksCart button {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
+
+.BooksCart h2 {
+  text-align: center;
+  padding-top: 60px;
+}
+
+.BooksCartSection {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.BooksCartSection:hover {
+  cursor: pointer;
+}
+
+.BooksCartSection article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

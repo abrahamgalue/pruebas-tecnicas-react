@@ -1,0 +1,7 @@
+.BookListSection {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 60px auto;
+  max-width: 1200px;
+}
