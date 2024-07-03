@@ -1,10 +1,15 @@
-import { useContext } from 'react'
-import { BooksContext } from './books/BooksContext.tsx'
 import './App.css'
 import BookList from './components/BookList.tsx'
+import BooksCart from './components/BooksCart.tsx'
+import books from './mocks/books.json'
 
 function App() {
-  const { library } = useContext(BooksContext)
+  const newBooks = books.library.map(({ book }) => {
+    return {
+      ...book,
+      isInCart: false,
+    }
+  })
 
   return (
     <>
@@ -12,7 +17,8 @@ function App() {
         <h1>Lista de libros</h1>
       </header>
       <main>
-        <BookList books={library} />
+        <BookList books={newBooks} />
+        <BooksCart />
       </main>
     </>
   )

@@ -1,44 +1,85 @@
 import { ReactNode, createContext, useReducer } from 'react'
 import initialBooks from '../mocks/books.json'
-import { Mock } from '../types'
+import { Book, BookAction, BooksActions, type BooksState } from '../types.d'
 
-export const BooksContext = createContext(initialBooks)
-export const BooksDispatchContext = createContext({})
+const updateBookInCartState = (
+  state: BooksState,
+  ISBN: string,
+  isInCart: boolean
+) => {
+  const bookIndex = state.findIndex(book => book.ISBN === ISBN)
+
+  if (bookIndex >= 0) {
+    const newState = [
+      ...state.slice(0, bookIndex),
+      { ...state[bookIndex], isInCart },
+      ...state.slice(bookIndex + 1),
+    ]
+
+    return newState
+  }
+
+  return state
+}
+
+const newBooks: Book[] = initialBooks.library.map(({ book }) => {
+  return {
+    ...book,
+    isInCart: false,
+  }
+})
+
+export const BooksContext = createContext<BooksState>(newBooks)
+export const BooksDispatchContext = createContext({
+  addToCart: (book: Book) => {
+    BooksActions
+    book
+  },
+  removeFromCart: (book: Book) => {
+    BooksActions
+    book
+  },
+})
 
 interface Props {
   children: ReactNode
 }
 
 export function BooksProvider({ children }: Props) {
-  const [books, dispatch] = useReducer(booksReducer, initialBooks)
+  const [books, dispatch] = useReducer(booksReducer, newBooks)
+
+  const addToCart = (book: Book) =>
+    dispatch({
+      type: BooksActions.ADD,
+      payload: book,
+    })
+
+  const removeFromCart = (book: Book) =>
+    dispatch({
+      type: BooksActions.REMOVE,
+      payload: book,
+    })
 
   return (
     <BooksContext.Provider value={books}>
-      <BooksDispatchContext.Provider value={dispatch}>
+      <BooksDispatchContext.Provider value={{ addToCart, removeFromCart }}>
         {children}
       </BooksDispatchContext.Provider>
     </BooksContext.Provider>
   )
 }
 
-type BooksState = Mock
-
-enum BooksActions {
-  ADD = 'ADD/BOOK',
-}
-
-interface BookAction {
-  type: BooksActions
-  // esto se debe cambiar
-  payload: Mock
+const UPDATE_STATE_BY_ACTION = {
+  [BooksActions.ADD]: (state: BooksState, action: BookAction) => {
+    return updateBookInCartState(state, action.payload.ISBN, true)
+  },
+  [BooksActions.REMOVE]: (state: BooksState, action: BookAction) => {
+    return updateBookInCartState(state, action.payload.ISBN, false)
+  },
 }
 
 function booksReducer(state: BooksState, action: BookAction) {
-  switch (action.type) {
-    case BooksActions.ADD: {
-      return state
-    }
-  }
-
-  return state
+  const { type } = action
+  const updateState = UPDATE_STATE_BY_ACTION[type]
+  return updateState ? updateState(state, action) : state
 }

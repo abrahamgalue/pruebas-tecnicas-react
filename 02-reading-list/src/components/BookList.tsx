@@ -1,10 +1,15 @@
-import { Library } from '../types'
+import './BookList.css'
+import { Book } from '../types'
+import { useContext } from 'react'
+import { BooksDispatchContext } from '../books/BooksContext'
 
-function BookList({ books }: { books: Library[] }) {
+function BookList({ books }: { books: Book[] }) {
+  const { addToCart } = useContext(BooksDispatchContext)
+
   return (
-    <section>
-      {books.map(({ book }) => (
-        <article>
+    <section className='BookListSection'>
+      {books.map(book => (
+        <article onClick={() => addToCart(book)} key={book.ISBN}>
           <img
             src={book.cover}
             alt={`Book ${book.title}`}

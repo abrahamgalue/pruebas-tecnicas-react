@@ -27,6 +27,7 @@ export type BooksState = Book[]
 
 export enum BooksActions {
   ADD = 'ADD/BOOK',
+  REMOVE = 'REMOVE/BOOK',
 }
 
 export interface BookAction {
