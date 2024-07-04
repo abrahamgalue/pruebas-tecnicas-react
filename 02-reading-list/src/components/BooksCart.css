@@ -1,15 +1,22 @@
+.CartBtn {
+  position: fixed;
+  right: 25px;
+  top: 25px;
+  z-index: 1;
+}
+
 .BooksCart {
   background-color: rgb(18, 18, 18);
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   width: 250px;
+  height: 100vh;
+  overflow-y: auto;
 }
 
-.BooksCart button {
-  position: absolute;
-  right: 25px;
-  top: 25px;
+.BooksCart::-webkit-scrollbar {
+  width: 0px;
 }
 
 .BooksCart h2 {

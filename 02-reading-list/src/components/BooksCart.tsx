@@ -15,12 +15,12 @@ function BooksCart() {
   }
 
   return (
-    <div className='BooksCart'>
-      <button onClick={toggleCartVisibility}>
+    <>
+      <button className='CartBtn' onClick={toggleCartVisibility}>
         <CartIcon />
       </button>
       {isVisible && (
-        <>
+        <div className='BooksCart'>
           <h2>Lista de lectura</h2>
           <section className='BooksCartSection'>
             {newBooks.length !== 0 &&
@@ -39,9 +39,9 @@ function BooksCart() {
                 </article>
               ))}
           </section>
-        </>
+        </div>
       )}
-    </div>
+    </>
   )
 }
 
