@@ -1,6 +1,13 @@
 import { ReactNode, createContext, useReducer } from 'react'
 import initialBooks from '../mocks/books.json'
 import { Book, BookAction, BooksActions, type BooksState } from '../types.d'
+import {
+  getLocalStorage,
+  localStorageItems,
+  updateLocalStorage,
+} from '../utils/localStorage'
+
+const { BOOKS } = localStorageItems
 
 const updateBookInCartState = (
   state: BooksState,
@@ -16,20 +23,24 @@ const updateBookInCartState = (
       ...state.slice(bookIndex + 1),
     ]
 
+    updateLocalStorage(BOOKS, newState)
     return newState
   }
 
+  updateLocalStorage(BOOKS, state)
   return state
 }
 
-const newBooks: Book[] = initialBooks.library.map(({ book }) => {
-  return {
-    ...book,
-    isInCart: false,
-  }
-})
+const booksInitialState: Book[] =
+  getLocalStorage(BOOKS) ||
+  initialBooks.library.map(({ book }) => {
+    return {
+      ...book,
+      isInCart: false,
+    }
+  })
 
-export const BooksContext = createContext<BooksState>(newBooks)
+export const BooksContext = createContext<BooksState>(booksInitialState)
 export const BooksDispatchContext = createContext({
   addToCart: (book: Book) => {
     BooksActions
@@ -46,7 +57,7 @@ interface Props {
 }
 
 export function BooksProvider({ children }: Props) {
-  const [books, dispatch] = useReducer(booksReducer, newBooks)
+  const [books, dispatch] = useReducer(booksReducer, booksInitialState)
 
   const addToCart = (book: Book) =>
     dispatch({

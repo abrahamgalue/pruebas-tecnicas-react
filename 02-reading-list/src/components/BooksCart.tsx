@@ -2,16 +2,27 @@ import { useContext, useState } from 'react'
 import { BooksContext, BooksDispatchContext } from '../books/BooksContext'
 import './BooksCart.css'
 import { CartIcon } from './Icons'
+import {
+  getLocalStorage,
+  localStorageItems,
+  updateLocalStorage,
+} from '../utils/localStorage'
 
 function BooksCart() {
-  const [isVisible, setIsVisible] = useState(false)
   const books = useContext(BooksContext)
   const { removeFromCart } = useContext(BooksDispatchContext)
+  const { CART_VISIBILITY } = localStorageItems
+  const [isVisible, setIsVisible] = useState<boolean>(
+    getLocalStorage(CART_VISIBILITY) || false
+  )
 
-  const newBooks = books.filter(books => books.isInCart !== false)
+  const cartBooks = books.filter(books => books.isInCart !== false)
 
   const toggleCartVisibility = () => {
-    setIsVisible(!isVisible)
+    setIsVisible(prevState => {
+      updateLocalStorage(CART_VISIBILITY, !prevState)
+      return !prevState
+    })
   }
 
   return (
@@ -23,8 +34,8 @@ function BooksCart() {
         <div className='BooksCart'>
           <h2>Lista de lectura</h2>
           <section className='BooksCartSection'>
-            {newBooks.length !== 0 &&
-              newBooks.map(book => (
+            {cartBooks.length !== 0 &&
+              cartBooks.map(book => (
                 <article key={book.ISBN} onClick={() => removeFromCart(book)}>
                   <img
                     src={book.cover}
