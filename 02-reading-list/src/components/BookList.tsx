@@ -1,7 +1,7 @@
 import './BookList.css'
 import { Book } from '../types'
 import { ChangeEvent, useContext, useState } from 'react'
-import { BooksDispatchContext } from '../books/BooksContext'
+import { BooksDispatchContext } from '../context/books'
 
 function BookList({ books }: { books: Book[] }) {
   const [filterCategory, setFilterCategory] = useState({ genre: 'all' })
