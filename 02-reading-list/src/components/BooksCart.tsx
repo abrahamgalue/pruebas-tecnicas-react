@@ -1,6 +1,6 @@
 import './BooksCart.css'
 import { BooksContext, BooksDispatchContext } from '../context/books'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useMemo, useState } from 'react'
 import {
   getLocalStorage,
   localStorageItems,
@@ -15,6 +15,7 @@ function BooksCart() {
   const [isVisible, setIsVisible] = useState<boolean>(
     getLocalStorage(CART_VISIBILITY) || false
   )
+  const bc = useMemo(() => new BroadcastChannel('cart_visibility'), [])
 
   const cartBooks = books.filter(books => books.isInCart !== false)
 
@@ -23,7 +24,16 @@ function BooksCart() {
       updateLocalStorage(CART_VISIBILITY, !prevState)
       return !prevState
     })
+    bc.postMessage(!isVisible)
   }
+
+  useEffect(() => {
+    bc.onmessage = event => {
+      setIsVisible(event.data)
+    }
+
+    return () => bc.close()
+  }, [bc])
 
   return (
     <>

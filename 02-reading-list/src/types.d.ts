@@ -35,3 +35,7 @@ export interface BookAction {
   // esto se debe cambiar
   payload: Book
 }
+
+export interface FiltersCategory {
+  genre: string
+}

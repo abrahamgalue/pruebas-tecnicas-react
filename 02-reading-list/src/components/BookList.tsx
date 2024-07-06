@@ -1,11 +1,24 @@
 import './BookList.css'
-import { Book } from '../types'
-import { ChangeEvent, useContext, useState } from 'react'
+import { Book, FiltersCategory } from '../types'
+import { ChangeEvent, useContext, useEffect, useMemo, useState } from 'react'
 import { BooksDispatchContext } from '../context/books'
+import {
+  getLocalStorage,
+  localStorageItems,
+  updateLocalStorage,
+} from '../utils/localStorage'
+
+const DEFAULT_GENRE = 'all'
 
 function BookList({ books }: { books: Book[] }) {
-  const [filterCategory, setFilterCategory] = useState({ genre: 'all' })
+  const { BOOK_FILTERS } = localStorageItems
+  const [filterCategory, setFilterCategory] = useState<FiltersCategory>(
+    getLocalStorage(BOOK_FILTERS) || {
+      genre: DEFAULT_GENRE,
+    }
+  )
   const { addToCart } = useContext(BooksDispatchContext)
+  const bc = useMemo(() => new BroadcastChannel('books_category'), [])
 
   const categories = Array.from(new Set(books.map(book => book.genre)))
 
@@ -18,18 +31,36 @@ function BookList({ books }: { books: Book[] }) {
   ).length
 
   const filteredBooks =
-    filterCategory.genre !== 'all'
+    filterCategory.genre !== DEFAULT_GENRE
       ? [...books].filter(book => book.genre === filterCategory.genre)
       : books
 
   const genreBooks = filteredBooks.length
 
   const toogleCategory = (e: ChangeEvent<HTMLSelectElement>) => {
-    setFilterCategory(prevState => ({
-      ...prevState,
+    setFilterCategory(prevState => {
+      const newState = {
+        ...prevState,
+        genre: e.target.value,
+      }
+
+      updateLocalStorage(BOOK_FILTERS, newState)
+
+      return newState
+    })
+    bc.postMessage({
+      ...filterCategory,
       genre: e.target.value,
-    }))
+    })
   }
+
+  useEffect(() => {
+    bc.onmessage = event => {
+      setFilterCategory(event.data)
+    }
+
+    return () => bc.close()
+  }, [bc])
 
   return (
     <>
@@ -39,8 +70,13 @@ function BookList({ books }: { books: Book[] }) {
         <h4>{readingListBooks} en la Lista de lectura</h4>
         <h5>{booksAvailable} Disponibles</h5>
         <span>Categorias: </span>
-        <select onChange={toogleCategory} name='categories' id='categories'>
-          <option value='all'>Todas</option>
+        <select
+          value={filterCategory.genre}
+          onChange={toogleCategory}
+          name='categories'
+          id='categories'
+        >
+          <option value={DEFAULT_GENRE}>Todas</option>
           {categories.map(category => (
             <option key={category} value={category}>
               {category}
