@@ -1,7 +1,7 @@
-import initialBooks from '../mocks/books.json'
-import { Book, BookAction, BooksActions, type BooksState } from '../types.d'
-import { getLocalStorage, localStorageItems } from '../utils/localStorage'
-import { updateBookInCartState } from '../utils/updateCart'
+import initialBooks from './books.json'
+import { Book, BookAction, BooksActions, type BooksState } from '../../types.d'
+import { getLocalStorage, localStorageItems } from './utils/localStorage'
+import { updateBookInCartState } from './utils/updateCart'
 
 const { BOOKS } = localStorageItems
 

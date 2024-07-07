@@ -1,4 +1,4 @@
-import { Book, FiltersCategory } from '../types'
+import { Book, FiltersCategory } from '../../../types'
 
 export const localStorageItems = {
   BOOKS: 'books',

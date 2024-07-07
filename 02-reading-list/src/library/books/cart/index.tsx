@@ -1,12 +1,12 @@
 import './BooksCart.css'
-import { BooksContext, BooksDispatchContext } from '../context/books'
+import { BooksContext, BooksDispatchContext } from '../context'
 import { useContext, useEffect, useMemo, useState } from 'react'
 import {
   getLocalStorage,
   localStorageItems,
   updateLocalStorage,
 } from '../utils/localStorage'
-import { CartIcon } from './Icons'
+import { CartIcon } from './icons'
 
 function BooksCart() {
   const books = useContext(BooksContext)

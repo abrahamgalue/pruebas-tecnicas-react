@@ -1,5 +1,5 @@
 import { localStorageItems, updateLocalStorage } from './localStorage'
-import { BooksState } from '../types'
+import { BooksState } from '../../../types'
 
 const { BOOKS } = localStorageItems
 

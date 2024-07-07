@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useReducer } from 'react'
-import { Book, BooksActions, BooksState } from '../types.d'
-import { booksInitialState, booksReducer } from '../reducers/books'
+import { Book, BooksActions, BooksState } from '../../types.d'
+import { booksInitialState, booksReducer } from './reducer'
 
 export const BooksContext = createContext<BooksState>(booksInitialState)
 export const BooksDispatchContext = createContext({

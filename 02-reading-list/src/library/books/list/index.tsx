@@ -1,7 +1,7 @@
 import './BookList.css'
-import { Book, FiltersCategory } from '../types'
+import { Book, FiltersCategory } from '../../../types'
 import { ChangeEvent, useContext, useEffect, useMemo, useState } from 'react'
-import { BooksDispatchContext } from '../context/books'
+import { BooksDispatchContext } from '../context'
 import {
   getLocalStorage,
   localStorageItems,

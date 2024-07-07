@@ -32,7 +32,6 @@ export enum BooksActions {
 
 export interface BookAction {
   type: BooksActions
-  // esto se debe cambiar
   payload: Book
 }
 
