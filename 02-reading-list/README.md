@@ -1,3 +1,19 @@
+<div align='center'>
+
+# 📖 Vite + React + TS: Lista de Lectura
+
+</div>
+
+### Aplicación de lista de libros
+
+> 🧩 Aquí puedes ver su [**Live Demo.**](https://reading-list-abrahamgalue.netlify.app/)
+
+## 🚀 Descripción
+
+Este proyecto es el resultado de una prueba técnica de React que resolví.
+
+Aquí debajo 👇 encontrarás la prueba técnica **real** completa.
+
 # 01 - Desarrollo de una Aplicación de Lista de Libros
 
 El objetivo de esta prueba es diseñar e implementar una pequeña aplicación web de lista de libros utilizando las herramientas de tu elección.
@@ -37,7 +53,7 @@ Usa el archivo `books.json` para obtener los datos de los libros. Puedes añadir
 
 - [x] **Sincronización entre pestañas**: Si el usuario abre la aplicación en dos pestañas diferentes, los cambios realizados en una pestaña deben reflejarse en la otra. Sin necesidad de usar Backend.
 
-- [ ] **Despliegue**: La aplicación debe estar desplegada en algún servicio de hosting gratuito (Netlify, Vercel, Firebase, etc) y debe ser accesible a través de una URL pública. Indica la URL en el README.
+- [x] **Despliegue**: La aplicación debe estar desplegada en algún servicio de hosting gratuito (Netlify, Vercel, Firebase, etc) y debe ser accesible a través de una URL pública. Indica la URL en el README.
 
 - [ ] **Test**: La aplicación debe tener AL MENOS un test. Haz el test que consideres más importante para tu aplicación.
 
