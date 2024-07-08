@@ -49,7 +49,7 @@ function BooksCart() {
                 <article key={book.ISBN} onClick={() => removeFromCart(book)}>
                   <img
                     src={book.cover}
-                    alt={`Book ${book.title}`}
+                    alt={`Reading list book ${book.title}`}
                     width={100}
                     height={150}
                   />

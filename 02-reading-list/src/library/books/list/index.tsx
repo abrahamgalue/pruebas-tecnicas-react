@@ -65,10 +65,10 @@ function BookList({ books }: { books: Book[] }) {
   return (
     <>
       <header>
-        <h2>{allBooks} Libros</h2>
-        <h3>{genreBooks} del género</h3>
-        <h4>{readingListBooks} en la Lista de lectura</h4>
-        <h5>{booksAvailable} Disponibles</h5>
+        <p>{allBooks} Libros</p>
+        <p>{genreBooks} del género</p>
+        <p>{readingListBooks} en la Lista de lectura</p>
+        <p>{booksAvailable} Disponibles</p>
         <span>Categorias: </span>
         <select
           value={filterCategory.genre}

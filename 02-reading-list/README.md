@@ -55,7 +55,7 @@ Usa el archivo `books.json` para obtener los datos de los libros. Puedes añadir
 
 - [x] **Despliegue**: La aplicación debe estar desplegada en algún servicio de hosting gratuito (Netlify, Vercel, Firebase, etc) y debe ser accesible a través de una URL pública. Indica la URL en el README.
 
-- [ ] **Test**: La aplicación debe tener AL MENOS un test. Haz el test que consideres más importante para tu aplicación.
+- [x] **Test**: La aplicación debe tener AL MENOS un test. Haz el test que consideres más importante para tu aplicación.
 
 ## Consejos sobre el código
 
