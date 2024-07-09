@@ -7,12 +7,13 @@
 
 .BooksCart {
   background-color: rgb(18, 18, 18);
+  height: 100vh;
+  overflow-y: auto;
+  padding-bottom: 15px;
   position: fixed;
   right: 0;
   top: 0;
   width: 250px;
-  height: 100vh;
-  overflow-y: auto;
 }
 
 .BooksCart::-webkit-scrollbar {
@@ -20,22 +21,52 @@
 }
 
 .BooksCart h2 {
-  text-align: center;
   padding-top: 60px;
+  text-align: center;
+  width: 100%;
 }
 
 .BooksCartSection {
-  width: 200px;
   margin: 0 auto;
+  width: 200px;
 }
 
 .BooksCartSection:hover {
   cursor: pointer;
 }
 
-.BooksCartSection article {
-  display: flex;
+.BooksCartArticle {
   align-items: center;
-  justify-content: center;
+  border-top: 1px solid #1a1a1a;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin: 25px 0;
+  transition: all 0.2s ease;
+}
+
+.BooksCartArticle:hover {
+  opacity: 0.7;
+}
+
+.BooksCartArticle img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.BooksCartTitle {
+  font-size: 14px;
+  text-align: center;
+  text-transform: capitalize;
+  text-wrap: balance;
+}
+
+@media (prefers-color-scheme: light) {
+  .BooksCart {
+    background-color: #ddd;
+  }
+
+  .BooksCartArticle {
+    border-top: 1px solid #aaa;
+  }
 }

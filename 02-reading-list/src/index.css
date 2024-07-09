@@ -91,6 +91,7 @@ main {
   }
 
   button {
-    background-color: #f9f9f9;
+    background-color: #008cdc;
+    color: #fff;
   }
 }

@@ -22,7 +22,6 @@ function BookList({ books }: { books: Book[] }) {
 
   const categories = Array.from(new Set(books.map(book => book.genre)))
 
-  const allBooks = books.length
   const readingListBooks = [...books].filter(
     book => book.isInCart === true
   ).length
@@ -65,28 +64,40 @@ function BookList({ books }: { books: Book[] }) {
   return (
     <>
       <header>
-        <p>{allBooks} Libros</p>
-        <p>{genreBooks} del género</p>
-        <p>{readingListBooks} en la Lista de lectura</p>
-        <p>{booksAvailable} Disponibles</p>
-        <span>Categorias: </span>
-        <select
-          value={filterCategory.genre}
-          onChange={toogleCategory}
-          name='categories'
-          id='categories'
-        >
-          <option value={DEFAULT_GENRE}>Todas</option>
-          {categories.map(category => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
+        <h3 className='BookListTitle'>{booksAvailable} Libros Disponibles</h3>
+        {readingListBooks !== 0 && (
+          <p className='BookListCountReadingList'>
+            {readingListBooks} en la Lista de lectura
+          </p>
+        )}
+        <section className='BookListFilter'>
+          <span>Filtrar por género </span>
+          <article>
+            <select
+              value={filterCategory.genre}
+              onChange={toogleCategory}
+              name='categories'
+              id='categories'
+            >
+              <option value={DEFAULT_GENRE}>Todas</option>
+              {categories.map(category => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+            <span className='BookListFilterInfo'>
+              {' '}
+              ({genreBooks} disponibles)
+            </span>
+          </article>
+        </section>
       </header>
+
       <section className='BookListSection'>
         {filteredBooks.map(book => (
           <article
+            className='BookListArticle'
             onClick={() => addToCart(book)}
             key={book.ISBN}
             style={book.isInCart ? { opacity: '.5' } : undefined}
@@ -97,9 +108,9 @@ function BookList({ books }: { books: Book[] }) {
               width={300}
               height={450}
             />
-            <div>
-              <span>{book.author.name}</span>
-              <p>{book.year}</p>
+            <div className='BookListInfo'>
+              <span className='BookAuthor'>{book.author.name}</span>
+              <p className='BookReleaseYear'>{book.year}</p>
             </div>
           </article>
         ))}

@@ -1,7 +1,61 @@
+.BookListTitle {
+  font-size: 24px;
+  margin-bottom: 0;
+  color: #c69a66;
+}
+
+.BookListCountReadingList {
+  font-size: 20px;
+  margin: 0;
+  opacity: 0.6;
+}
+
+.BookListFilter {
+  margin-top: 35px;
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.BookListFilter>span {
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 20px;
+}
+
+.BookListFilterInfo {
+  opacity: 0.8;
+}
+
 .BookListSection {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin: 60px auto;
   max-width: 1200px;
+}
+
+.BookListArticle:hover {
+  cursor: pointer;
+}
+
+.BookListArticle img {
+  transition: transform 0.2s;
+}
+
+.BookListArticle:hover img {
+  transform: scale(1.025);
+}
+
+.BookAuthor {
+  font-size: 26px;
+  font-weight: bold;
+  text-wrap: balance;
+}
+
+.BookReleaseYear {
+  margin: 0;
+  font-weight: bold;
+  color: #7b81fd;
 }

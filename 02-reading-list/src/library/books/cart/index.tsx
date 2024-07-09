@@ -36,33 +36,32 @@ function BooksCart() {
   }, [bc])
 
   return (
-    <>
+    <aside>
       <button className='CartBtn' onClick={toggleCartVisibility}>
         <CartIcon />
       </button>
       {isVisible && (
-        <div className='BooksCart'>
+        <article className='BooksCart'>
           <h2>Lista de lectura</h2>
           <section className='BooksCartSection'>
             {cartBooks.length !== 0 &&
               cartBooks.map(book => (
-                <article key={book.ISBN} onClick={() => removeFromCart(book)}>
+                <article
+                  className='BooksCartArticle'
+                  key={book.ISBN}
+                  onClick={() => removeFromCart(book)}
+                >
+                  <h3 className='BooksCartTitle'>{book.title}</h3>
                   <img
                     src={book.cover}
                     alt={`Reading list book ${book.title}`}
-                    width={100}
-                    height={150}
                   />
-                  <div>
-                    <span>{book.author.name}</span>
-                    <p>{book.year}</p>
-                  </div>
                 </article>
               ))}
           </section>
-        </div>
+        </article>
       )}
-    </>
+    </aside>
   )
 }
 
