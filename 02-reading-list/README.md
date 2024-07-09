@@ -12,7 +12,17 @@
 
 Este proyecto es el resultado de una prueba técnica de React que resolví.
 
+## 🎭 Resultados de los Tests
+
+Los tests están hechos utilizando la herramienta [**Playwright**](https://playwright.dev/).
+
+Son pruebas **unitarias** y **end-to-end**.
+
+![screenshot-tests](public/tests.png)
+
 Aquí debajo 👇 encontrarás la prueba técnica **real** completa.
+
+</br>
 
 # 01 - Desarrollo de una Aplicación de Lista de Libros
 
