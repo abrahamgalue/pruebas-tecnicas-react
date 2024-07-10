@@ -11,11 +11,12 @@
 }
 
 .BookListFilter {
-  margin-top: 35px;
-  flex-direction: column;
-  display: flex;
   align-items: flex-start;
-  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-evenly;
+  margin-top: 35px;
 }
 
 .BookListFilter>span {

@@ -6,6 +6,7 @@ import BooksCart from './library/books/cart'
 
 function App() {
   const books = useContext(BooksContext)
+  const categories = Array.from(new Set(books.map(book => book.genre)))
 
   return (
     <>
@@ -13,7 +14,7 @@ function App() {
         <h1>Lista de libros</h1>
       </header>
       <main>
-        <BookList books={books} />
+        <BookList books={books} categories={categories} />
         <BooksCart />
       </main>
     </>
