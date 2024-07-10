@@ -44,12 +44,6 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: #131313;
 }
 
-h1 {
-  font-size: 3.2em;
-  margin: 0;
-  line-height: 1.1;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
