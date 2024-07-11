@@ -36,5 +36,13 @@ export interface BookAction {
 }
 
 export interface FiltersCategory {
+  search: string
   genre: string
+  minPages: number
+}
+
+export enum FiltersActions {
+  search = 'search',
+  genre = 'genre',
+  minPages = 'minPages',
 }

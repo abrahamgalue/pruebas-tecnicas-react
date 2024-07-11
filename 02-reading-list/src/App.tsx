@@ -7,6 +7,8 @@ import BooksCart from './library/books/cart'
 function App() {
   const books = useContext(BooksContext)
   const categories = Array.from(new Set(books.map(book => book.genre)))
+  const minCountPages = Math.min(...[...books].map(book => book.pages))
+  const maxCountPages = Math.max(...[...books].map(book => book.pages))
 
   return (
     <>
@@ -14,7 +16,11 @@ function App() {
         <h1>Lista de libros</h1>
       </header>
       <main>
-        <BookList books={books} categories={categories} />
+        <BookList
+          books={books}
+          categories={categories}
+          countPages={{ minCountPages, maxCountPages }}
+        />
         <BooksCart />
       </main>
     </>
