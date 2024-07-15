@@ -1,0 +1,32 @@
+.header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  justify-content: center;
+  padding: 25px;
+}
+
+.form {
+  position: relative;
+}
+
+.input {
+  background-color: #ececec;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  max-width: 80vw;
+  padding: 10px;
+  width: 32ch;
+}
+
+.iconBtn {
+  border: none;
+  cursor: pointer;
+  height: 24px;
+  position: absolute;
+  right: 5px;
+  top: 25%;
+  width: 24px;
+}
