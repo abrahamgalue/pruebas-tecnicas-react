@@ -3,6 +3,7 @@ export interface Mock {
   total: number
   skip: number
   limit: number
+  categories?: ProductCategories[]
 }
 
 export interface Product {
@@ -17,4 +18,9 @@ export interface Product {
   category: string
   thumbnail: string
   images: string[]
+}
+
+export interface ProductCategories {
+  name: string
+  quantity: number
 }

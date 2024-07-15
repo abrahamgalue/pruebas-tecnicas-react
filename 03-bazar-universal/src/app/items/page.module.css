@@ -1,0 +1,89 @@
+.section {
+  margin: 0 auto;
+  max-width: 650px;
+  padding: 25px;
+}
+
+.section h2 {
+  color: #898989;
+  font-size: 16px;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 5px 0;
+}
+
+.smartphones {
+  background-color: #e59cca;
+}
+
+.laptops {
+  background-color: #a9d744;
+}
+
+.fragrances {
+  background-color: #86cffe;
+}
+
+.skincare {
+  background-color: #f25022;
+}
+
+.groceries {
+  background-color: #ffb900;
+}
+
+.home-decoration {
+  background-color: #7334cc;
+}
+
+.categories p {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.article {
+  margin: 25px 0;
+}
+
+.container {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+.container picture {
+  flex: 1;
+  text-align: center;
+}
+
+.container picture img {
+  border-radius: 50%;
+}
+
+.information {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.description {
+  max-width: 45ch;
+  text-wrap: balance;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.priceAndRating {
+  display: flex;
+  padding-top: 5px;
+  justify-content: space-between;
+}

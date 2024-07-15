@@ -9,9 +9,9 @@ const api = {
       )
       const res = (await data.json()) as Mock
 
-      const { products, limit, skip, total } = res
+      const { products, limit, skip, total, categories } = res
 
-      return { products, limit, skip, total }
+      return { products, limit, skip, total, categories }
     },
     fetch: async (id: string) => {
       const data = await fetch(`http://localhost:3000/api/items/${id}`)
