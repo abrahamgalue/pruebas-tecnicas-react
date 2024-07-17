@@ -27,6 +27,8 @@
 }
 
 .iconBtn {
+  cursor: pointer;
+  border: none;
   height: 24px;
   position: absolute;
   right: 5px;
@@ -35,15 +37,5 @@
 }
 
 .btn {
-  background-color: #e59cca;
-  border-radius: 25px;
-  box-shadow: 0px 2px #0441f1;
   font-size: 20px;
-  padding: 8px 35px;
-}
-
-.iconBtn,
-.btn {
-  border: none;
-  cursor: pointer;
 }

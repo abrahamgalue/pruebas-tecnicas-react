@@ -1,3 +1,4 @@
+import Button from './components/Button'
 import { SearchIcon } from './components/Icons'
 import styles from './page.module.css'
 
@@ -18,9 +19,7 @@ export default function Home() {
             <SearchIcon />
           </button>
         </form>
-        <button form='form' className={styles.btn}>
-          Buscar
-        </button>
+        <Button title='Buscar' form='form' className={styles.btn} />
       </header>
     </main>
   )

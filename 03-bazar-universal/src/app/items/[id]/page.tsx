@@ -1,6 +1,7 @@
 import api from '@/app/api'
 import styles from './product.module.css'
 import Link from 'next/link'
+import Button from '@/app/components/Button'
 
 export async function generateStaticParams() {
   return [
@@ -159,7 +160,7 @@ export default async function Products({
         <p className={styles.description}>{product.description}</p>
       </div>
       <Link href='/'>
-        <button className={styles.btn}>Comprar</button>
+        <Button title='Comprar' className={styles.btn} />
       </Link>
     </div>
   )
