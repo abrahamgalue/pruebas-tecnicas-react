@@ -1,4 +1,4 @@
-import api from '@/app/api'
+import api from '@/app/lib/api'
 import styles from './product.module.css'
 import Link from 'next/link'
 import Button from '@/app/components/Button'
@@ -109,7 +109,7 @@ export default async function Products({
     <div>
       <div className={styles.images}>
         <figure className={styles.mainPictureFigure}>
-          {product.images.map((image, index) => {
+          {product.images.map((image: string, index: number) => {
             if (index === 0) {
               return (
                 <picture key={index}>
@@ -126,7 +126,7 @@ export default async function Products({
 
         {product.images.length > 1 && (
           <div className={styles.imagesContained}>
-            {product.images.map((image, index) => {
+            {product.images.map((image: string, index: number) => {
               if (index === 0) return
               if (index >= 4) return
 

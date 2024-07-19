@@ -1,6 +1,6 @@
-import Button from './components/Button'
-import { SearchIcon } from './components/Icons'
 import styles from './page.module.css'
+import { SearchIcon } from './components/Icons'
+import Button from './components/Button'
 
 export default function Home() {
   return (

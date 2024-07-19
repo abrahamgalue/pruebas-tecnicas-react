@@ -1,6 +1,7 @@
-import Link from 'next/link'
-import api from '../api'
+import api from '@/app/lib/api'
 import styles from './page.module.css'
+import { Product, ProductCategories } from '../../../types'
+import Link from 'next/link'
 
 export default async function ProductsPage({
   searchParams,
@@ -16,13 +17,13 @@ export default async function ProductsPage({
         Resultados de búsqueda de &quot;{searchParams.search}&quot;: {total}
       </h2>
       <article className={styles.categories}>
-        {categories?.map(category => (
+        {categories?.map((category: ProductCategories) => (
           <p key={category.name} className={styles[category.name]}>
             {category.name} - {category.quantity}
           </p>
         ))}
       </article>
-      {products.map(item => (
+      {products.map((item: Product) => (
         <article key={item.id} className={styles.article}>
           <Link href={`/items/${item.id}`} className={styles.container}>
             <picture>
