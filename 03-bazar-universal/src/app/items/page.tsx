@@ -2,6 +2,7 @@ import api from '@/app/lib/api'
 import styles from './page.module.css'
 import { Product, ProductCategories } from '../../../types'
 import Link from 'next/link'
+import NotFound from '../not-found'
 
 export default async function ProductsPage({
   searchParams,
@@ -9,7 +10,11 @@ export default async function ProductsPage({
   searchParams: { search: string }
 }) {
   const data = await api.item.search(searchParams.search)
-  const { products, total, categories } = data
+  const { products, total, categories, status } = data
+
+  if (status === 404) {
+    return <NotFound />
+  }
 
   return (
     <section className={styles.section}>
