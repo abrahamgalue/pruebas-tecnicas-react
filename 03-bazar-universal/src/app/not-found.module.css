@@ -1,0 +1,16 @@
+.main {
+  display: grid;
+  text-align: center;
+  place-content: center;
+  height: 100vh;
+  gap: 20px;
+}
+
+.btn {
+  background-color: #e59cca;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 2px #0441f1;
+  padding: 8px 35px;
+}
