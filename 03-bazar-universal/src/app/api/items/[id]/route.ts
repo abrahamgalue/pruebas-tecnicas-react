@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import mock from '../../../../../public/products.json'
+import { mErrorObj } from '@/app/lib/utils'
 
 const { products } = mock
 
@@ -9,10 +10,11 @@ export async function GET(
 ) {
   const id = Number(params.id)
 
-  if (id != null) {
-    const res = [...products].find(product => product.id === id)
-    return NextResponse.json(res)
+  const res = [...products].find(product => product.id === id)
+
+  if (res == undefined) {
+    return Response.json(mErrorObj(String(id)))
   }
 
-  return NextResponse.json(mock)
+  return NextResponse.json({ ...res, status: 'active' })
 }

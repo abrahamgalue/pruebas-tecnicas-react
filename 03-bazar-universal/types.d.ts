@@ -4,6 +4,7 @@ export interface Mock {
   skip: number
   limit: number
   categories?: ProductCategories[]
+  status: reqStatus
 }
 
 export interface Product {
@@ -18,7 +19,10 @@ export interface Product {
   category: string
   thumbnail: string
   images: string[]
+  status: reqStatus
 }
+
+type reqStatus = 404 | 'active'
 
 export interface ProductCategories {
   name: string

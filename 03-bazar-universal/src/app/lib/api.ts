@@ -1,4 +1,4 @@
-import { Mock, Product } from '../../types'
+import { Mock, Product } from '../../../types'
 
 const api = {
   item: {
@@ -9,9 +9,9 @@ const api = {
       )
       const res = (await data.json()) as Mock
 
-      const { products, limit, skip, total, categories } = res
+      const { products, limit, skip, total, categories, status } = res
 
-      return { products, limit, skip, total, categories }
+      return { products, limit, skip, total, categories, status }
     },
     fetch: async (id: string) => {
       const data = await fetch(`http://localhost:3000/api/items/${id}`)
