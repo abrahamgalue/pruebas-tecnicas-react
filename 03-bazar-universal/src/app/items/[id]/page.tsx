@@ -164,7 +164,7 @@ export default async function Products({
         </div>
         <p className={styles.description}>{product.description}</p>
       </div>
-      <Link href='/'>
+      <Link href='/' className={styles.link}>
         <Button title='Comprar' className={styles.btn} />
       </Link>
     </div>

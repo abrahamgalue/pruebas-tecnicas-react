@@ -77,11 +77,13 @@
   margin-top: 35px;
 }
 
+.link {
+  display: flex;
+}
+
 .btn {
-  bottom: 35px;
+  margin: 25px auto;
   font-size: 30px;
-  left: calc(50% - 100px);
-  position: absolute;
   width: 200px;
 }
 
