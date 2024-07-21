@@ -2,7 +2,7 @@ import api from '@/app/lib/api'
 import styles from './product.module.css'
 import Link from 'next/link'
 import Button from '@/app/components/Button'
-import NotFound from '@/app/not-found'
+import EmptyState from '@/app/components/EmtyState'
 
 export async function generateStaticParams() {
   return [
@@ -107,7 +107,7 @@ export default async function Products({
   const product = await api.item.fetch(id)
 
   if (product.status === 404) {
-    return <NotFound />
+    return <EmptyState />
   }
 
   return (
