@@ -1,3 +1,38 @@
+<div align='center'>
+
+# 📖 NextJS + React + TS: Bazar Universal
+
+</div>
+
+### Mercado para la búsqueda de productos Full Stack
+
+> 🧩 Aquí puedes ver su [**Live Demo.**](https://bazar-universal-abrahamgalue.vercel.app/)
+
+![vista-previa1](public/preview/01-page-preview.jpg)
+![vista-previa2](public/preview/02-page-preview.jpg)
+![vista-previa3](public/preview/03-page-preview.jpg)
+![vista-previa4](public/preview/04-page-preview.png)
+![vista-previa5](public/preview/05-page-preview.png)
+
+## 🚀 Descripción
+
+Este proyecto es el resultado de una **prueba técnica de Mercado Libre** que **resolví** utilizando **NextJS**.
+
+## 🎭 Resultados de los Tests
+
+Los tests están hechos utilizando la herramienta [**Playwright**](https://playwright.dev/).
+
+Son pruebas **unitarias** y **end-to-end**.
+
+![screenshot-test1](public/tests_screenshots/tests1.png)
+![screenshot-test2](public/tests_screenshots/tests2.png)
+![screenshot-test3](public/tests_screenshots/tests3.png)
+![screenshot-test4](public/tests_screenshots/tests4.png)
+
+Aquí debajo 👇 encontrarás la prueba técnica **real** completa.
+
+</br>
+
 # 02 - Desarrollo Full Stack de Bazar
 
 <small>
@@ -85,12 +120,3 @@ Ten en cuenta:
 - Implementa la funcionalidad de carrito de la compra.
 - Haz que el diseño sea responsive.
 - Integra la paginación tanto en la API como en la web.
-
-## Entrevista
-
-Si pasas a la siguiente fase, te pediremos que hagas una entrevista con nosotros. Durante la entrevista, te pediremos que expliques tu código y que hagas algunos cambios en el mismo.
-
-- Nos tendrás que explicar el código que has escrito y las decisiones que has tomado.
-- Haremos cambios en el JSON y tendrás que adaptar el código en vivo.
-
-Buena suerte y ¡diviértete programando!
