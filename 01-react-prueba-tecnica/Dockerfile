@@ -28,3 +28,17 @@ COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
+
+# Stage 4: Test environment
+FROM node:22 AS test
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm install --frozen-lockfile
+RUN npx playwright install --with-deps
+
+COPY . ./
+
+EXPOSE 5173
+
+CMD ["sh", "-c", "npm run dev & sleep 5 && npx playwright test"]

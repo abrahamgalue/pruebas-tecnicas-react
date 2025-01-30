@@ -11,3 +11,12 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=${NODE_ENV}
+
+  tests:
+    build:
+      context: .
+      target: test
+    depends_on:
+      - frontend
+    environment:
+      - NODE_ENV=test
