@@ -18,7 +18,9 @@ export default function App() {
   return (
     <>
       <div className='container'>
-        <img src={giphyGiff} alt={randomFact} width={300} height={300} />
+        {giphyGiff && (
+          <img src={giphyGiff} alt={randomFact} width={300} height={300} />
+        )}
         <p>{randomFact}</p>
         <button onClick={handleClick}>New fact</button>
       </div>
