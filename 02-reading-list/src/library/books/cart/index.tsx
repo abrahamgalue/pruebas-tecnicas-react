@@ -1,6 +1,6 @@
 import './BooksCart.css'
 import { BooksContext, BooksDispatchContext } from '../context'
-import { useContext, useEffect, useMemo, useState } from 'react'
+import { use, useEffect, useMemo, useState } from 'react'
 import {
   getLocalStorage,
   localStorageItems,
@@ -9,8 +9,8 @@ import {
 import { CartIcon } from './icons'
 
 function BooksCart() {
-  const books = useContext(BooksContext)
-  const { removeFromCart } = useContext(BooksDispatchContext)
+  const books = use(BooksContext)
+  const { removeFromCart } = use(BooksDispatchContext)
   const { CART_VISIBILITY } = localStorageItems
   const [isVisible, setIsVisible] = useState<boolean>(
     getLocalStorage(CART_VISIBILITY) || false

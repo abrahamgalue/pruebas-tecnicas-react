@@ -1,11 +1,11 @@
 import './App.css'
-import { useContext } from 'react'
+import { use } from 'react'
 import { BooksContext } from './library/books/context'
 import BookList from './library/books/list'
 import BooksCart from './library/books/cart'
 
 function App() {
-  const books = useContext(BooksContext)
+  const books = use(BooksContext)
   const categories = Array.from(new Set(books.map(book => book.genre)))
   const minCountPages = Math.min(...[...books].map(book => book.pages))
   const maxCountPages = Math.max(...[...books].map(book => book.pages))

@@ -40,10 +40,10 @@ export function BooksProvider({ children }: Props) {
   const { books, addToCart, removeFromCart } = useBooksReducer()
 
   return (
-    <BooksContext.Provider value={books}>
-      <BooksDispatchContext.Provider value={{ addToCart, removeFromCart }}>
+    <BooksContext value={books}>
+      <BooksDispatchContext value={{ addToCart, removeFromCart }}>
         {children}
-      </BooksDispatchContext.Provider>
-    </BooksContext.Provider>
+      </BooksDispatchContext>
+    </BooksContext>
   )
 }
