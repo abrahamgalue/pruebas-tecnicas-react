@@ -4,11 +4,24 @@ export function useCatImage({ randomFact }) {
   const [giphyGiff, setGiphyGiff] = useState('')
 
   useEffect(() => {
-    if (!randomFact) return
+    if (randomFact.length === 0) return
 
-    const firstWord = randomFact.split(' ')[0]
-    const imageUrl = `https://cataas.com/cat/says/${firstWord}`
-    setGiphyGiff(imageUrl)
+    let ignore = false
+
+    async function getRandomImage() {
+      const firstWord = randomFact.split(' ')[0]
+      const imageUrl = `https://cataas.com/cat/says/${firstWord}`
+
+      if (!ignore) {
+        setGiphyGiff(imageUrl)
+      }
+    }
+
+    getRandomImage()
+
+    return () => {
+      ignore = true
+    }
   }, [randomFact])
 
   return { giphyGiff }
