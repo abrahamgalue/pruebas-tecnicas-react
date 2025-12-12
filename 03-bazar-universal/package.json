@@ -9,17 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.2.26",
+    "next": "14.2.35",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
     "@playwright/test": "1.45.3",
-    "@types/node": "20.17.30",
-    "@types/react": "18.3.20",
-    "@types/react-dom": "18.3.6",
+    "@types/node": "20.17.58",
+    "@types/react": "18.3.27",
+    "@types/react-dom": "18.3.7",
     "eslint": "8.57.1",
-    "eslint-config-next": "14.2.26",
+    "eslint-config-next": "14.2.35",
     "typescript": "5"
   }
 }
